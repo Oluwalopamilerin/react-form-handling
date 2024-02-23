@@ -2,23 +2,24 @@ import React, {useState} from 'react';
 
 import "./Form.css"
 
-const Form = () => {
+const Form= () => {
   const [formData, setFormData] = useState({
-    username: "default",
-    email: "default@gmail.com",
+    username: "",
+    email: "",
     occupation: "student",
     gender: "female",
     languages: ["html"],
   })
 
-  const handleChange = (e)=> {
-    if (e.target.name === "languages"){
-      let copy = {...formData};
+  const handleChange=(e)=> {
+    if (e.target.name==="languages"){
+      let copy={...formData};
       if (e.target.checked){
         copy.languages.push(e.target.value)
       }else{
-        copy.languages = copy.languages.filter(item => item !== e.target.value)
+        copy.languages=copy.languages.filter(item => item !== e.target.value)
       }
+      
       setFormData(copy);
 
     } else{
@@ -30,7 +31,7 @@ const Form = () => {
     
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit= (e) => {
     e.preventDefault()
   }
 
@@ -40,11 +41,11 @@ const Form = () => {
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="username" className="form-label">User Name</label>
-        <input className="form-control" name="username" onChange={handleChange} value={formData.username}/>
+        <input className="form-control" name="username" onChange={handleChange} value={formData.username} placeholder='default'/>
       </div>
       <div className="form-group">
         <label htmlFor="email" className="form-label">Email</label>
-        <input className="form-control" name="email" onChange={handleChange} value={formData.email}/>
+        <input className="form-control" name="email" onChange={handleChange} value={formData.email} placeholder='default@gmail.com'/>
       </div>
       <div className="form-group">
         <label htmlFor="occupation" className="form-label">Occupation</label>
