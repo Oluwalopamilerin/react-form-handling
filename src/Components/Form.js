@@ -37,7 +37,7 @@ const Form= () => {
 
   return (
 
-    <div className="App">
+    <div className="form">
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="username" className="form-label">User Name</label>
